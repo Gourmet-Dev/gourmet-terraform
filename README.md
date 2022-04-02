@@ -31,7 +31,7 @@ Gourmet terraform configurations
 ### Trouble-shooting
 ##### Unexpected 'EOT' string from `terraform output` command.
 1. Add `-raw` option to `terraform output`.
-##### `kubectl` not working for my EKS cluster.
+##### Credential related issues raised on an AWS environment.
 1. Make sure you installed [aws-iam-authenticator](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/install-aws-iam-authenticator.html) into the `$PATH`.
 2. Export environment variables, `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY`.
 3. Create `~/.aws/credentials` with contents as the below format to preserve your AWS credential.
