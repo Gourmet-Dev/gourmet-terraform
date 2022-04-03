@@ -8,3 +8,9 @@ variable "gourmet_id" {
     default = "gourmet"
     type = string
 }
+
+# Management IP 주소
+variable "management_cidr" {
+    default = "127.0.0.1/32"
+    type = string
+}

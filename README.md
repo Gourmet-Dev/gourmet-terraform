@@ -29,9 +29,12 @@ Gourmet terraform configurations
 * AmazonEKS_CNI_Policy
 
 ### Trouble-shooting
+##### Cannot access my infrastructure.
+1. Make sure you had provided the external management CIDR properly.
+2. If not, you should reconfigure your infrastructure using commandline option `-var="management_cidr=127.0.0.1/32"`.
 ##### Unexpected 'EOT' string from `terraform output` command.
 1. Add `-raw` option to `terraform output`.
-##### Credential related issues raised on an AWS environment.
+##### Credential related issues raised on the AWS environment.
 1. Make sure you installed [aws-iam-authenticator](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/install-aws-iam-authenticator.html) into the `$PATH`.
 2. Export environment variables, `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY`.
 3. Create `~/.aws/credentials` with contents as the below format to preserve your AWS credential.

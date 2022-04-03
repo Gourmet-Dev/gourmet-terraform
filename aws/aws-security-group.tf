@@ -1,11 +1,3 @@
-data "http" "workstation-cidr-resolver" {
-    url = "http://ipv4.icanhazip.com"
-}
-
-locals {
-    external_management_cidr = "${chomp(data.http.workstation-cidr-resolver.body)}/32"
-}
-
 resource "aws_security_group" "gourmet" {
     name = "gourmet"
     description = "Security group for gourmet"
@@ -24,7 +16,7 @@ resource "aws_security_group" "gourmet" {
 }
 
 resource "aws_security_group_rule" "gourmet-ingress" {
-    cidr_blocks = [local.external_management_cidr]
+    cidr_blocks = [var.management_cidr]
     description = "Allow ingress communications to management infrastructures."
     security_group_id = aws_security_group.gourmet.id
     type = "ingress"
